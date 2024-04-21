@@ -5,7 +5,7 @@ ADB_COMMAND_END="adb shell wm size 1080x2400"
 check_error() {
     if [ $? -ne 0 ]; then
         echo "An error has occurred"
-        read -s -r -p "Press any key to exit..."
+        read -n 1 -s -r -p "Press any key to exit..."
         exit 1
     fi
 }
