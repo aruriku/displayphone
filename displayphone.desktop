@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Display Phone
-GenericName=Android Remote Control
-Comment=Display and control your Android device
+GenericName=Android Remote Control Script
+Comment=Display and control your Android device. Script using adb and scrcpy
 # For some users, the PATH or ADB environment variables are set from the shell
 # startup file, like .bashrc or .zshrc… Run an interactive shell to get
 # environment correctly initialized.
