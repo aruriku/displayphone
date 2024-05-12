@@ -1,5 +1,25 @@
 #!/bin/bash
-ADB_COMMAND_START="adb shell wm size 1440x2560"
+
+# default values
+width=1920
+height=1080
+
+# get from config file
+if test -f $HOME/.config/displayphone/config ; then
+  . $HOME/.config/displayphone/config
+fi
+
+# get from arguments
+while getopts "h:w:" opt; do
+  case $opt in
+    h) height=$OPTARG ;;
+    w) width=$OPTARG ;;
+  esac
+done
+
+echo $height
+echo $width
+ADB_COMMAND_START="adb shell wm size ${height}x${width}"
 ADB_COMMAND_END="adb shell wm size 1080x2400"
 
 check_error() {
