@@ -17,8 +17,6 @@ while getopts "h:w:" opt; do
   esac
 done
 
-echo $height
-echo $width
 ADB_COMMAND_START="adb shell wm size ${height}x${width}"
 ADB_COMMAND_END="adb shell wm size 1080x2400"
 
@@ -30,7 +28,7 @@ check_error() {
     fi
 }
 
-echo "Setting screen resolution and starting scrcpy..."
+echo "Setting phone screen resolution to ${height}x${width} and starting scrcpy..."
 $ADB_COMMAND_START
 check_error
 
