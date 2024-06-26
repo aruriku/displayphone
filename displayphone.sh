@@ -17,8 +17,8 @@ while getopts "h:w:" opt; do
   esac
 done
 
-ADB_COMMAND_START="adb shell wm size ${height}x${width}"
-ADB_COMMAND_END="adb shell wm size 1080x2400"
+ADB_COMMAND_START="adb -d shell wm size ${height}x${width}"
+ADB_COMMAND_END="adb -d shell wm size 1080x2400"
 
 check_error() {
     if [ $? -ne 0 ]; then
@@ -32,7 +32,7 @@ echo "Setting phone screen resolution to ${height}x${width} and starting scrcpy.
 $ADB_COMMAND_START
 check_error
 
-scrcpy -b 30m &
+scrcpy -d -b 30m &
 scrcpy_pid=$!
 wait $scrcpy_pid
 echo "scrcpy closed, restoring phone resolution..."
