@@ -41,4 +41,4 @@ check_error
 
 $ADB_COMMAND_END
 check_error
-wait .5 #wait half a second before continuing
+sleep 0.5 #wait half a second before continuing
